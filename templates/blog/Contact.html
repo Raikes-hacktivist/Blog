@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>a {text-decoration: none; }</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="footer, address, phone, icons" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script>
+		$(document).ready(function(){
+	  
+		  $(id="navbutton").click(function(){
+	  
+			if($(id="navbutton").text() == "☰"){
+			  $(id="navbutton").text("🞬");
+			}else{
+			  $(id="navbutton").text("☰");
+			}
+			
+			$("li").toggle("slow");
+		  });  
+		});
+	</script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+  <link href="{% static 'css/contact.css' %}" rel ="stylesheet">
+</head>
+
+   <header>
+    	<div class="container-fluid">
+			<div class="row zsx">
+				<div class="col-lg-12 animated ">
+					<p class="vcenter">
+					<h1> Toretto's Blog </h1>
+					<h3>Everything Gist-Tech related</h3>
+					</p>
+				</div>
+			</div>
+		</div>
+   </header>
+   <nav>
+    <ul class="link2"> 
+        <button id="navbutton">🞬</button>
+      <li> 
+        <!-- link one -->
+        <a class="link2" href="{% url 'blog:home' %}"> Home </a>
+      </li>
+      <li>
+        <!-- link two -->
+         <a class="link2" href="{% url 'blog:about' %}"> About </a>
+      </li>
+      <li>
+        <!-- link three -->
+        <a class="link2" href="{% url 'blog:contact' %}"> Contact </a>
+      </li>
+      
+    </ul>
+  </nav>
+
+<body>
+
+  <div class="container">
+    <div class="wrapper animated ">
+      <div class="company-info">
+        <h3>Contact Info:</h3>
+        <ul>
+          <li><i class="fa fa-map-marker"></i> No 10, Kajola Street, New Airport, Ibadan.</li>
+          <li><i class="fa fa-phone"></i> (+234)8118116332</li>
+          <li><i class="fa fa-envelope"></i> akinpeluoluwadamilare79@gmail.com</li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h3>Email Us</h3>
+        <form>
+          <p>
+            <label>Name</label>
+            <input type="text" name="name">
+          </p>
+          <p>
+            <label>Company</label>
+            <input type="text" name="company">
+          </p>
+          <p>
+            <label>Email Address</label>
+            <input type="email" name="email">
+          </p>
+          <p>
+            <label>Phone Number</label>
+            <input type="text" name="phone">
+          </p>
+          <p class="full">
+            <label>Message</label>
+            <textarea name="message" rows="5"></textarea>
+          </p>
+          <p class="full">
+            <button class="submitButton" type="submit" >Submit</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+         <footer class="footer-distributed">
+             <div class="footer-left">
+
+                <h3>About <span>Toretto</span> </h3>
+
+				<p class="footer-links">
+					<a href="{% url 'blog:home' %}">Home</a>
+					|
+					<a href="{% url 'blog:about' %}">About</a>
+					|
+					<a href="{% url 'blog:contact' %}">Contact</a>
+				</p>
+                <p><a href="{% url 'blog:post_feed' %}">Subscribe to my RSS feed</a></p>
+				<p class="footer-company-name">Copyright 2020 &copy; Toretto's Blog | All Rights Reserved</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p><span>No 10, Kajola Street, New Airport, Ibadan.</span></p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>(+234)8118116332</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:akinpeluoluwadamilare79@gmail.com">akinpeluoluwadamilare79@gmail.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the blog</span>
+					We offer training and skill building courses across Technology, Design, Management, Entertainment and Music.</p>
+				<div class="footer-icons">
+					<a href="https://web.facebook.com/profile.php?id=100005202726012"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/T_o_r_e_tto?s=08'"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.instagram.com/exicutive_erroor/"><i class="fa fa-instagram"></i></a>
+				</div>
+			</div>
+		</footer>
+
+
+</body>
+</html>

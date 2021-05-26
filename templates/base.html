@@ -1,0 +1,183 @@
+{% load blog_tags %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+	<style>a {text-decoration: none; }</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	  <meta name="keywords" content="footer, address, phone, icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+    
+        $("button").click(function(){
+    
+          if($("button").text() == "☰"){
+            $("button").text("🞬");
+          }else{
+            $("button").text("☰");
+          }
+          
+          $("li").toggle("slow");
+        });  
+      });
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/@fancyapps/fancybox/jquery.fancybox.min.css' %}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favicon.ico/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'favicon.ico/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'favicon.ico/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'favicon.ico/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'favicon.ico/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'favicon.ico/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'favicon.ico/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'favicon.ico/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon.ico/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'favicon.ico/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon.ico/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'favicon.ico/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon.ico/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon.ico/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link href="{% static 'css/blog.css' %}" rel ="stylesheet">
+
+  </head>
+
+    <header>
+    	<div class="container-fluid">
+			<div class="row zsx">
+				<div class="col-lg-12 animated ">
+					<p class="vcenter">
+					<h1> Toretto's Blog </h1>
+					<h3>Everything Gist-Tech related</h3>
+					</p>
+				</div>
+      </div>  
+			</div>
+    </header>
+
+<nav>
+  <ul class="link2"> 
+      <button>🞬</button>
+    <li> 
+      <!-- link one -->
+      <a class="link2" href="{% url 'blog:home' %}"> Home </a>
+    </li>
+    <li>
+      <!-- link two -->
+       <a class="link2" href="{% url 'blog:about' %}"> About </a>
+    </li>
+    <li>
+      <!-- link three -->
+      <a class="link2" href="{% url 'blog:contact' %}"> Contact </a>
+    </li>
+    
+  </ul>
+</nav>
+<body>
+
+ <section class="post-content-section">
+  <div class="container">
+   
+    <div class="col-lg-9 col-md-9 col-sm-12">
+      {% block content %}
+      {% endblock content %}
+    </div>
+
+    <div class="col-lg-3  col-md-9 col-sm-12">
+
+      <div class="well">
+        <p>I have written {% total_posts %} posts so far.</p>
+        <p><a class = "link1" href="{% url 'blog:post_feed' %}">Subscribe to my RSS feed</a></p>
+      </div>
+
+      <div class="well">
+         <h3>Latest posts</h3>
+         {% show_latestposts 3 %}
+      </div>
+
+      <div class="well">
+        <h3>Most commented posts</h3>
+         {% get_most_commented_posts as most_commented_posts %}
+        <ul>
+         {% for post in most_commented_posts %}
+         <li>
+		   <a  href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+         </li>
+         {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+ </section>
+
+    <footer class="footer-distributed">
+			<div class="footer-left">
+				<h3>About <span>Toretto</span> </h3>
+
+				<p class="footer-links">
+					<a href="{% url 'blog:home' %}">Home</a>
+					|
+					<a href="{% url 'blog:about' %}">About</a>
+					|
+					<a href="{% url 'blog:contact' %}">Contact</a>
+				</p>
+        <p><a href="{% url 'blog:post_feed' %}">Subscribe to my RSS feed</a></p>
+				<p class="footer-company-name">Copyright 2020 &copy; Toretto's Blog | All Rights Reserved</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p><span>No 10, Kajola Street, New Airport, Ibadan.</span></p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+                    <p>(+234)8118116332</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:akinpeluoluwadamilare79@gmail.com">akinpeluoluwadamilare79@gmail.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the blog</span>
+					We offer training and skill building courses across Technology, Design, Management, Entertainment and Music.</p>
+
+				<div class="footer-icons">
+					<a href="https://web.facebook.com/profile.php?id=100005202726012"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/T_o_r_e_tto?s=08'"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.instagram.com/exicutive_erroor/"><i class="fa fa-instagram"></i></a>
+				</div>
+			</div>
+
+    </footer>     
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

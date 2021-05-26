@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <style>a {text-decoration: none; }</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="footer, address, phone, icons" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+	  
+		  $("button").click(function(){
+	  
+			if($("button").text() == "☰"){
+			  $("button").text("🞬");
+			}else{
+			  $("button").text("☰");
+			}
+			
+			$("li").toggle("slow");
+		  });  
+		});
+	</script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<link href="{% static 'css/about.css' %}" rel ="stylesheet">
+	<link href="{% static 'css/tablet.css' %}" media="screen and (max-width:800px)" rel ="stylesheet">
+    <link href="{% static 'css/phone.css' %}" media="screen and (max-width:530px)" rel ="stylesheet">
+</head>
+
+<body>
+  <header>
+    	<div class="container-fluid">
+			<div class="row zsx">
+				<div class="col-lg-12 animated ">
+					<p class="vcenter">
+					<h1> Toretto's Blog </h1>
+					<h3>Everything Gist-Tech related</h3>
+					</p>
+				</div>
+			</div>
+		</div>
+  </header>
+
+  <nav>
+	<ul class="link2"> 
+		<button>🞬</button>
+	  <li> 
+		<!-- link one -->
+		<a class="link2" href="{% url 'blog:home' %}"> Home </a>
+	  </li>
+	  <li>
+		<!-- link two -->
+		 <a class="link2" href="{% url 'blog:about' %}"> About </a>
+	  </li>
+	  <li>
+		<!-- link three -->
+		<a class="link2" href="{% url 'blog:contact' %}"> Contact </a>
+	  </li>
+	  
+	</ul>
+  </nav>
+
+  <div class="about-section">
+	<h1 class="headings">ABOUT US </h1>
+   <div id="intro">
+	<p>Toretto's blog is a Nigerian Blog created in 2021 from scratch through use of codes.</p>
+	<p>Toretto's blog is a Nigerin blog that covers topics on tech, gists from universities, blogging, news.</p>
+	<p>Toretto's blog is a blog website with its headquarter in Ibadan, Nigeria, focused on delivering latest captivating headlines just the 
+		way you love it We are a modern media house with a different view of news gathering and delivery. We are aware of the fake news trend 
+	    in the online media and have taken up the challenge to correct this trend. We are out to rewrite the rules on how news publishing should 
+	    be practiced in a digital age.</p>
+	<p>The team at toretto's blog delivers reliable and verified Nigerian, Africa and world headlines in a simple, easy-to-read format; just the way
+		news should be delivered, with a dedicated team of editors. All contents on Toretto's are verified and published on the sound judgement
+		of our seasoned editors.</p>
+	<p>Toretto's blog is of the view that the media can positively or negatively influence people's individual and collective decision making
+		processes, with a massive multiplier effect on the society, hence, we have chosen to help build our society through accurate reportage.</p>
+	<p> The blog is owned by <b>Oluwadamilare Akinpelu</b>. You can read more <a href="{% url 'blog:self' %}" class="class1">about him here.</a>
+   </div>
+
+  </div>
+
+        <footer class="footer-distributed">
+            <div class="footer-left">
+
+                <h3>About <span>Toretto</span> </h3>
+
+				<p class="footer-links">
+					<a href="{% url 'blog:home' %}">Home</a>
+					|
+					<a href="{% url 'blog:about' %}">About</a>
+					|
+					<a href="{% url 'blog:contact' %}">Contact</a>
+				</p>
+                <p><a href="{% url 'blog:post_feed' %}">Subscribe to my RSS feed</a></p>
+				<p class="footer-company-name">Copyright 2020 &copy; Toretto's Blog | All Rights Reserved</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p><span>No 10, Kajola Street, New Airport, Ibadan.</span></p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>(+234)8118116332</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:akinpeluoluwadamilare79@gmail.com">akinpeluoluwadamilare79@gmail.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the blog</span>
+					We offer training and skill building courses across Technology, Design, Management, Entertainment and Music.</p>
+				<div class="footer-icons">
+					<a href="https://web.facebook.com/profile.php?id=100005202726012"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/T_o_r_e_tto?s=08'"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.instagram.com/exicutive_erroor/"><i class="fa fa-instagram"></i></a>
+				</div>
+			</div>
+		</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load blog_tags %}
+
+{% block content %}
+
+    {% if tag %}
+      <h9>Posts tagged with "{{ tag.name }}"</h9>
+    {% endif %}
+
+     {% for post in posts %}
+        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+
+        <p class="tags">
+           Tags:
+           {% for tag in post.tags.all %}
+               <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
+               {% if not forloop.last %}, {% endif %}
+           {% endfor %}
+        </p>
+
+     {% if post.image %}
+        <div class="view overlay">
+          <img class="img-fluid" src="{{post.image.url}}" alt="Responsive image">
+        </div>
+     {% endif %}
+
+     {% if post.video %}
+
+        <div class="video-responsive">
+          <video width="420" height="315" controls>
+          <source src="{{post.video.url}}" type="video/mp4">
+          </video>
+        </div>
+
+     {% endif %}
+
+        <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+        {{ post.body|markdown|truncatewords_html:30 }}
+     {% endfor %}
+
+     {% include "pagination.html" with page=posts %}
+
+{% endblock content %}
